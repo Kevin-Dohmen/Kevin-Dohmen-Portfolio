@@ -13,7 +13,7 @@ body {
   }
   
   #Header {
-    margin-top: 64px;
+    margin-top: 0px;
     margin-bottom: 16px;
     height: auto;
   }
@@ -37,7 +37,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     text-align: center;
-    margin-top: 96px;
+    margin-top: 46px;
   }
   
   .Title.Portfolio {

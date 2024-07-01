@@ -3,7 +3,13 @@ include_once "includes/header.php";
 
 $DB = new DB();
 
-var_dump($DB->query("SELECT * FROM projects"));
+$projects = $DB->getProjects();
+
+echo "<pre>";
+print_r($projects);
+echo "</pre>";
+
+var_dump($projects);
 
 ?>
 
@@ -12,3 +18,5 @@ var_dump($DB->query("SELECT * FROM projects"));
 <?php
 include_once "includes/footer.php";
 ?>
+
+
