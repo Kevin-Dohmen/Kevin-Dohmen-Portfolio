@@ -45,48 +45,48 @@ class DB {
             p.UpdateDate AS UpdateDate,
             CONCAT('[', 
                 GROUP_CONCAT(
-                    CONCAT('{\"ID\":', l.ID, ',',
+                    DISTINCT CONCAT('{\"ID\":', l.ID, ',',
                         '\"Name\":\"', l.Name, '\",',
                         '\"Color\":\"', l.Color, '\"'
                     , '}') SEPARATOR ',')
-            , ']') AS Languages,
+            , ']') AS PLanguages,
             CONCAT('[', 
                 GROUP_CONCAT(
-                    CONCAT('{\"ID\":', t.ID, ',',
+                    DISTINCT CONCAT('{\"ID\":', t.ID, ',',
                         '\"Name\":\"', t.Name, '\",',
                         '\"Color\":\"', t.Color, '\"'
                     , '}') SEPARATOR ',')
             , ']') AS Tags,
             CONCAT('[', 
                 GROUP_CONCAT(
-                    CONCAT('{\"ID\":', c.ID, ',',
+                    DISTINCT CONCAT('{\"ID\":', c.ID, ',',
                         '\"Name\":\"', c.Name, '\",',
                         '\"Website\":\"', c.Website, '\",',
                         '\"ImgDir\":\"', c.ImgDir, '\",',
                         '\"Color\":\"', c.Color, '\"'
                     , '}') SEPARATOR ',')
             , ']') AS Collaborators
-        FROM
-            Projects p
-        LEFT JOIN
-            Project_PLanguages pl ON p.ID = pl.ProjectID
-        LEFT JOIN
-            PLanguages l ON pl.LangID = l.ID
-        LEFT JOIN
-            Project_Tags pt ON p.ID = pt.ProjectID
-        LEFT JOIN
-            Tags t ON pt.TagID = t.ID
-        LEFT JOIN
-            Project_Collaborators pc ON p.ID = pc.ProjectID
-        LEFT JOIN
-            Collaborators c ON pc.CollaboratorID = c.ID
-        GROUP BY
-            p.ID
-        ORDER BY
-            p.Date DESC;
+            FROM
+                Projects p
+            LEFT JOIN
+                Project_PLanguages pl ON p.ID = pl.ProjectID
+            LEFT JOIN
+                PLanguages l ON pl.LangID = l.ID
+            LEFT JOIN
+                Project_Tags pt ON p.ID = pt.ProjectID
+            LEFT JOIN
+                Tags t ON pt.TagID = t.ID
+            LEFT JOIN
+                Project_Collaborators pc ON p.ID = pc.ProjectID
+            LEFT JOIN
+                Collaborators c ON pc.CollaboratorID = c.ID
+            GROUP BY
+                p.ID
+            ORDER BY
+                p.Date DESC;
         ");
         foreach($projects as $key => $project) {
-            $projects[$key]['Languages'] = json_decode($project['Languages']);
+            $projects[$key]['PLanguages'] = json_decode($project['PLanguages']);
             $projects[$key]['Tags'] = json_decode($project['Tags']);
             $projects[$key]['Collaborators'] = json_decode($project['Collaborators']);
         }

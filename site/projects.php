@@ -18,8 +18,8 @@ $projects = $DB->getProjects();
             foreach ($projects as $project) {
                 $tagshtml = '';
 
-                if ($project["Languages"] != null){
-                    foreach ($project["Languages"] as $language) {
+                if ($project["PLanguages"] != null){
+                    foreach ($project["PLanguages"] as $language) {
                         $tagshtml .= '<div class="lable languages" style="background-color: ' . $language->Color . '">' . $language->Name . '</div>';
                     }
                 }
