@@ -32,7 +32,7 @@ $projects = $DB->getProjects();
 
                 $html = '
                 <div class="projectbox">
-                    <img src="' . $project['ImgDir'] . '" alt="Pic" width="200px" class="projectpic" onclick="window.open(\'' . $project['Link'] . '\', \'_blank\')">
+                    <img src="img/projects/' . $project['ImgDir'] . '" alt="Pic" width="200px" class="projectpic" onclick="window.open(\'' . $project['Link'] . '\', \'_blank\')">
                     <div class="projecttextbox">
                         ' . $tagshtml . '
                         <h3>

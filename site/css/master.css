@@ -1,187 +1,253 @@
 /*-------------Website-wide Styles-------------*/
 
 body {
-    background: linear-gradient(121deg, rgba(113,0,148,1) 0%, rgba(2,0,36,1) 100%);
-    font-family: sans-serif;
-    color: #FFFFFF;
+  background: linear-gradient(121deg, rgba(113,0,148,1) 0%, rgba(2,0,36,1) 100%);
+  font-family: sans-serif;
+  color: #FFFFFF;
+}
+
+#wrapper {
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+
+#Header {
+  margin-top: 64px;
+  margin-bottom: 16px;
+  height: auto;
+}
+
+#content {
+  font-size: 14px;
+  height: auto;
+}
+
+#footer {
+  margin: 0px -8px -8px -8px;
+  height: auto;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #303030;
+  font-size: 14px;
+}
+
+.Title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 96px;
+}
+
+.Title.Portfolio {
+  text-align: left;
+  font-size: 50px;
+  display: inline-block;
+  margin: auto 0 auto 5px;
+}
+
+#topBar {
+  height: auto;
+  width: 100%;
+  background-color: #00000080;
+  position:fixed;
+  top:0px;
+  left:0px;
+  z-index:1000;
+}
+
+.menuButton {
+  height: 32px;
+  float: left;
+  width: auto;
+  padding: 10px 10px 10px 10px;
+  background-color: #88888800;
+  color: #FFFFFF;
+}
+
+.menuButton:hover {
+  padding: 5px 10px 15px 10px;
+  background-color: #88888888;
+}
+
+.debug-box {
+  width: 500px;
+  height: auto;
+  border: 5px solid #FF0000;
+  border-radius: 10px;
+}
+
+.menuText {
+  font-size: 20px;
+  float: right;
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+#contentbox {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #0003;
+  border-radius: 20px;
+  padding: 10px
+}
+
+/*-------------Pagina-specifieke Styles-------------*/
+/*Projecten*/
+.projectbox {
+  background-color: #1c284d;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.projectbox.last {
+  margin-bottom: 0px;
+}
+
+.projecttextbox {
+  color: #16d92a;
+  margin-left: 200px;
+  padding-left: 20px;
+}
+
+.lable {
+  float: right;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 3px;
+  border-radius: 5px;
+  margin-left: 5px;
+  color: #000000;
+}
+.current-project {
+  background-color: #dd0000;
+}
+
+.school-project {
+  background-color: #00afdd;
+}
+
+.private-project {
+  background-color: #88dd88;
+}
+
+.languages {
+  background-color: #faf;
+}
+
+.projectpic {
+  float: left;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.link {
+  color: #6666ff;
+  text-decoration: none;
+}
+
+/*Home*/
+.pfpic {
+  height: 300px;
+  border-radius: 10px;
+}
+.vseppline {
+  width: 2px;
+  height: 300px;
+  background-color: white;
+}
+.hseppline { /* = <br> */
+  color: white;
+  height: 0;
+}
+.wherehowwhy {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.whoami {
+  margin: 0 50px;
+  border-radius: 10px;
+  padding: 10px;
+  background-image: linear-gradient(#0054, #0024);
+  .text {
+    margin: 0;
+    font-size: 24px;
   }
-  
-  #wrapper {
-    min-height: 100vh;
-    padding-bottom: 20px;
-    padding-top: 50px;
-  }
-  
-  #Header {
-    margin-top: 0px;
-    margin-bottom: 16px;
-    height: auto;
-  }
-  
-  #content {
-    font-size: 14px;
-    height: auto;
-  }
-  
-  #footer {
-    margin: 0px -8px -8px -8px;
-    height: auto;
-    padding: 20px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: #303030;
-    font-size: 14px;
-  }
-  
-  .Title {
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 46px;
-  }
-  
-  .Title.Portfolio {
-    text-align: left;
-    font-size: 50px;
-    display: inline-block;
-    margin: auto 0 auto 0;
-  }
-  
-  #topBar {
-    height: auto;
-    width: 100%;
-    background-color: #00000080;
-    position:fixed;
-    top:0px;
-    left:0px;
-    z-index:1000;
-  }
-  
-  .menuButton {
-    height: 32px;
-    float: left;
-    width: auto;
-    padding: 10px 10px 10px 10px;
-    background-color: #88888800;
-    color: #FFFFFF;
-  }
-  
-  .menuButton:hover {
-    padding: 5px 10px 15px 10px;
-    background-color: #88888888;
-  }
-  
-  .debug-box {
-    width: 500px;
-    height: auto;
-    border: 5px solid #FF0000;
-    border-radius: 10px;
-  }
-  
-  .menuText {
-    font-size: 20px;
-    float: right;
-    margin-left: 10px;
-    margin-top: 8px;
-  }
-  
-  #contentbox {
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: #0003;
-    border-radius: 20px;
-    padding: 10px
-  }
-  
-  /*-------------Pagina-specifieke Styles-------------*/
-  /*Projecten*/
-  .projectbox {
-    background-color: #1c284d;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    overflow: hidden;
-  }
-  
-  .projectbox.end {
-    margin-bottom: 0px;
-  }
-  
-  .projecttextbox {
-    color: #16d92a;
-    margin-left: 200px;
-    padding-left: 20px;
-  }
-  
-  .lable {
-    float: right;
-    font-weight: 800;
-    font-size: 12px;
-    padding: 3px;
-    border-radius: 5px;
-    margin-left: 5px;
-    color: #000000;
-  }
-  .current-project {
-    background-color: #dd0000;
-  }
-  
-  .school-project {
-    background-color: #00afdd;
-  }
-  
-  .private-project {
-    background-color: #88dd88;
-  }
-  
-  .languages {
-    background-color: #faf;
-  }
-  
-  .projectpic {
-    float: left;
-    margin-right: 10px;
-    border-radius: 10px;
-  }
-  
-  .link {
-    color: #6666ff;
-    text-decoration: none;
-  }
-  
-  /*Home*/
-  .whoami {
-    margin: 0 50px;
-    border-radius: 10px;
-    padding: 10px;
-    background-image: linear-gradient(#0054, #0024);
-    .text {
-      margin: 0;
-      font-size: 24px;
-    }
-  }
-  
-  /*CV*/
-  .downloadbox {
+}
+
+/*CV*/
+.downloadbox {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  margin: 0 auto;
+  border: 2px solid #777;
+  background-color: #555;
+  .greenarrow {
     height: 50px;
-    width: 200px;
+    width: 50px;
     border-radius: 10px;
-    margin: 0 auto;
-    border: 2px solid #777;
-    background-color: #555;
-    .greenarrow {
+    background-color: #383838;
+    float: left;
+  }
+  .text{
+    padding-top: 10px;
+    margin-left: 70px;
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  /* All */
+  #topBar{
+    .menuButton{
+      font-size: 50px;
       height: 50px;
-      width: 50px;
-      border-radius: 10px;
-      background-color: #383838;
-      float: left;
-    }
-    .text{
-      padding-top: 10px;
-      margin-left: 70px;
-      font-size: 25px;
-      font-weight: 700;
-      color: white;
+      .menuText {
+        font-size: 35px;
+        margin-top: 10px;
+      }
     }
   }
+
+  #footer {
+    font-size: 30px;
+  }
+
+
+  /* Home */
+  .pfpic {
+    height: 500px;
+  }
+  .vseppline {
+    width: 4px;
+    height: 500px;
+  }
+  .hseppline {
+    color: white;
+    background-color: white;
+    height: 3px;
+  }
+  .wherehowwhy {
+    font-size: 24px;
+  }
+
+  /* Projecten */
+  .lable {
+    font-size: 30px;
+  }
+
+  /* Contact */
+  .contacttext {
+    font-size: 30px;
+  }
+
+  /* CV */
+  
+}
