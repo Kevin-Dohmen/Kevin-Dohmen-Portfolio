@@ -41,7 +41,7 @@ $projects = $DB->getProjects();
                         <p>
                             ' . $project['Description'] . '
                         </p>
-                        <a href="' . $project['GHLink'] . '" target="_blank"><img src="pictures/githubLogoWhite.webp" alt="github" height="32px"></a>
+                        <a href="' . $project['GHLink'] . '" target="_blank"><img src="img/githubLogoWhite.webp" alt="github" height="32px"></a>
                     </div>
                 </div>
                 ';
