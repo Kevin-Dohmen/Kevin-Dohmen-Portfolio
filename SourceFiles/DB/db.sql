@@ -60,10 +60,13 @@ ENGINE = InnoDB;
 -- Table `portfolioDB`.`Project_Tags`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `portfolioDB`.`Project_Tags` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `ProjectID` INT NOT NULL,
   `TagID` INT NOT NULL,
   INDEX `ProjectIDpt_idx` (`ProjectID` ASC) ,
   INDEX `TagIDpt_idx` (`TagID` ASC) ,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) ,
   CONSTRAINT `ProjectIDpt`
     FOREIGN KEY (`ProjectID`)
     REFERENCES `portfolioDB`.`Projects` (`ID`)
@@ -93,10 +96,13 @@ ENGINE = InnoDB;
 -- Table `portfolioDB`.`Project_PLanguages`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `portfolioDB`.`Project_PLanguages` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `ProjectID` INT NOT NULL,
   `LangID` INT NOT NULL,
   INDEX `ProjectIDpl_idx` (`ProjectID` ASC) ,
   INDEX `PLanguageID_idx` (`LangID` ASC) ,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) ,
   CONSTRAINT `ProjectIDpl`
     FOREIGN KEY (`ProjectID`)
     REFERENCES `portfolioDB`.`Projects` (`ID`)
@@ -125,10 +131,13 @@ ENGINE = InnoDB;
 -- Table `portfolioDB`.`Admin_Permissions`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `portfolioDB`.`Admin_Permissions` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `adminID` INT NOT NULL,
   `PermissionID` INT NOT NULL,
   INDEX `AdminIDap_idx` (`adminID` ASC) ,
   INDEX `PermissionIDap_idx` (`PermissionID` ASC) ,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) ,
   CONSTRAINT `AdminIDap`
     FOREIGN KEY (`adminID`)
     REFERENCES `portfolioDB`.`admin` (`ID`)
@@ -306,10 +315,13 @@ ENGINE = InnoDB;
 -- Table `portfolioDB`.`Project_Collaborators`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `portfolioDB`.`Project_Collaborators` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `ProjectID` INT NOT NULL,
   `CollaboratorID` INT NOT NULL,
   INDEX `ProjectIDpc_idx` (`ProjectID` ASC) ,
   INDEX `CollaboratorIDpc_idx` (`CollaboratorID` ASC) ,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) ,
   CONSTRAINT `ProjectIDpc`
     FOREIGN KEY (`ProjectID`)
     REFERENCES `portfolioDB`.`Projects` (`ID`)
