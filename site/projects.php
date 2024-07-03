@@ -30,8 +30,14 @@ $projects = $DB->getProjects();
                     }
                 }
 
+                if (end($projects) == $project) {
+                    $classes = 'projectbox last';
+                } else {
+                    $classes = 'projectbox';
+                }
+
                 $html = '
-                <div class="projectbox">
+                <div class="' . $classes . '">
                     <img src="img/projects/' . $project['ImgDir'] . '" alt="Pic" width="200px" class="projectpic" onclick="window.open(\'' . $project['Link'] . '\', \'_blank\')">
                     <div class="projecttextbox">
                         ' . $tagshtml . '
