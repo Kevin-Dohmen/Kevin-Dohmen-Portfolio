@@ -248,10 +248,13 @@ ENGINE = InnoDB;
 -- Table `portfolioDB`.`Photo_Categories`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `portfolioDB`.`Photo_Categories` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `PhotoID` INT NOT NULL,
   `CatID` INT NOT NULL,
   INDEX `PhotoIDpc_idx` (`PhotoID` ASC) ,
   INDEX `CatIDpc_idx` (`CatID` ASC) ,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) ,
   CONSTRAINT `PhotoIDpc`
     FOREIGN KEY (`PhotoID`)
     REFERENCES `portfolioDB`.`Photo_Showcase` (`ID`)
@@ -280,10 +283,13 @@ ENGINE = InnoDB;
 -- Table `portfolioDB`.`Photo_Albums`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `portfolioDB`.`Photo_Albums` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `PhotoID` INT NOT NULL,
   `AlbumID` INT NOT NULL,
   INDEX `PhotoIDpa_idx` (`PhotoID` ASC) ,
   INDEX `AlbumIDpa_idx` (`AlbumID` ASC) ,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) ,
   CONSTRAINT `PhotoIDpa`
     FOREIGN KEY (`PhotoID`)
     REFERENCES `portfolioDB`.`Photo_Showcase` (`ID`)
@@ -330,6 +336,25 @@ CREATE TABLE IF NOT EXISTS `portfolioDB`.`Project_Collaborators` (
   CONSTRAINT `CollaboratorIDpc`
     FOREIGN KEY (`CollaboratorID`)
     REFERENCES `portfolioDB`.`Collaborators` (`ID`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `portfolioDB`.`Sessions`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `portfolioDB`.`Sessions` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Session` VARCHAR(128) NOT NULL,
+  `UserID` INT NOT NULL,
+  `Date` DATETIME NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) ,
+  INDEX `UserIDss_idx` (`UserID` ASC) ,
+  CONSTRAINT `UserIDss`
+    FOREIGN KEY (`UserID`)
+    REFERENCES `portfolioDB`.`admin` (`ID`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

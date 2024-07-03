@@ -33,6 +33,54 @@ class DB {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function validateLogin($email, $password) {
+        $valid = True;
+
+        if (empty($email) || empty($password)) {
+            return "Email and password are required.";
+        }
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $valid = false;
+        }
+        if (strlen($password) < 8 || !preg_match("/[A-Z]/", $password) || !preg_match("/[a-z]/", $password) || !preg_match("/[0-9]/", $password) || !preg_match("/[^A-Za-z0-9]/", $password)) {
+            $valid = false;
+        }
+
+        if (!$valid) {
+            return "Invalid email or password.";
+        }
+        return $valid;
+    }
+
+    public function login($email, $password) {
+        $usr = $this->userFromEmail($email);
+
+    }
+
+    public function getSession($session) {
+        $sessions = $this->query("SELECT * FROM Sessions WHERE Session = '$session'");
+        
+        if (count($sessions) == 0) {
+            return False;
+        }
+
+        $ses = $sessions[0];
+        if(count($sessions) > 1) {
+            $this -> query("DELETE FROM Sessions WHERE Session = '$session'");
+            $this -> query("INSERT INTO Sessions (Session, UserID) VALUES ('$session', " . $ses['UserID'] . ")");
+        }
+        return $ses;
+    }
+
+    public function userFromEmail($email){
+        $usr = $this -> query("SELECT * FROM admin WHERE Email = '$email'");
+        if (count($usr) == 0) {
+            return False;
+        }
+        $usr = $usr[0];
+        return $usr;
+    }
+
     public function getProjects() {
         $projects = $this->query("SELECT
             p.ID AS ID,

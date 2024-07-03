@@ -33,7 +33,7 @@ include_once "includes/header.php";
             De talen die ik nu beheers zijn: Python, C++ en HTML/CSS. <br>
             Ik ben nu bezig met het leren van HTML/CSS en voor mijzelf ben ik bezig met C++. <br>
             Thuis heb ik een 3D printer staan, een CR 20 pro, waar ik zo nu en dan wat mee print. <br>
-            Ik ontwerp het meers met Fusion360 en slicen doe ik met PrusaSlicer of Cura. <br>
+            Ik ontwerp het meest met Fusion360 en slicen doe ik met PrusaSlicer of Cura. <br>
             Ook ben ik veel bezig met blender, maar dat is meer voor de fun. <br>
         </p>
     </div>

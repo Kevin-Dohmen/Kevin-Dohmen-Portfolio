@@ -32,6 +32,10 @@ body {
   font-size: 14px;
 }
 
+.LoginBtn {
+  float: right;
+}
+
 .Title {
   font-size: 40px;
   font-weight: bold;
@@ -201,6 +205,33 @@ body {
     font-weight: 700;
     color: white;
   }
+}
+
+/*login*/
+.loginForm {
+  margin: 0 auto;
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #00000080;
+}
+.loginbox {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #00000080;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+}
+.loginbox label {
+  margin: 5px;
+}
+.loginbox input {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #000000;
 }
 
 @media screen and (max-width: 1000px) {
