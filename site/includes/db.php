@@ -52,9 +52,20 @@ class DB {
         return $valid;
     }
 
-    public function login($email, $password) {
-        $usr = $this->userFromEmail($email);
+    public function login($UID, $Session) {
+        $this->query("INSERT INTO Sessions (UserID, Session) VALUES ($UID, '$Session')");
+    }
 
+    public function logout($Session) {
+        $this->query("DELETE FROM Sessions WHERE Session = '$Session'");
+    }
+
+    public function isLoggedIn($Session) {
+        $sessions = $this->query("SELECT * FROM Sessions WHERE Session = '$Session'");
+        if (count($sessions) > 0) {
+            return $sessions[0]['UserID'];
+        }
+        return False;
     }
 
     public function getSession($session) {

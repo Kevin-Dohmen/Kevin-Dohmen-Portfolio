@@ -17,12 +17,13 @@
 
                     Telefoon:<br>
                     - 0623352848
+                    
                 </td>
             </tr>
         </table>
     </div>
 
-<script src="js/master.js"></script>
+<script src="/js/master.js"></script>
 </body>
 
 </html>

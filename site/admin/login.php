@@ -1,6 +1,8 @@
 <?php
 include_once "../includes/header.php";
 
+$errorMessage = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST["email"]);
     $password = $_POST["password"];
@@ -8,19 +10,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $DB = new DB();
 
 
-    var_dump($email);
-    var_dump($password);
+    // var_dump($email);
+    // var_dump($password);
     $valid = $DB->validateLogin($email, $password);
-    var_dump($valid);
-
-    $errorMessage = "";
+    // var_dump($valid);
 
     // var_dump(password_hash("Nimda123!", PASSWORD_DEFAULT));
     if ($valid) {
         $usr = $DB->userFromEmail($email);
-        var_dump($usr);
+        // var_dump($usr);
         if (password_verify($password, $usr["PW"])) {
-            echo "LoggedIn";
+            $DB->login($usr["ID"], session_id());
+            header("Location: /admin/adminpanel.php");
         } else {
             $errorMessage = "Invalid email or password.";
         }
@@ -38,6 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div id="content">
     <div id="contentbox">
         <form action="login.php" method="post" class="loginForm">
+            <?php if ($errorMessage != "") { ?>
+                <div class="loginbox">
+                    <p class="error"><?php echo $errorMessage; ?></p>
+                </div>
+            <?php } ?>
             <div class="loginbox">
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" required>

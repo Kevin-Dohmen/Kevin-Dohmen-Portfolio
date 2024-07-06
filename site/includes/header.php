@@ -8,14 +8,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-# check if user is logged in
-$loggedIn = False;
-if (isset($_SESSION)) {
-    $session = $DB->getSession(session_id());
-    if ($session) {
-        $loggedIn = True;
-    }
-}
+$isloggedin = $DB->isLoggedIn(session_id());
 
 ?>
 
@@ -51,7 +44,7 @@ if (isset($_SESSION)) {
             <div class="LoginBtn">
                 <?php
 
-                if ($loggedIn) {
+                if ($isloggedin) {
                     echo '<a href="/admin/adminPanel.php" class="menuButton">
                     <p class="menuText">Admin Panel</p>
                     </a>';
